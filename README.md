@@ -1,6 +1,6 @@
 # Storage Workshop
 
-Docker EE 2.0 is the first Containers-as-a-Service platform to offer production-level support for the integrated management and security of both Linux and Windows Server Containers. It is also the first platform to support both Docker Swarm and Kubernetes orchestration.
+Docker EE 2.1 is the first Containers-as-a-Service platform to offer production-level support for the integrated management and security of both Linux and Windows Server Containers. It is also the first platform to support both Docker Swarm and Kubernetes orchestration.
 
 In this lab we'll look at the types of storage options that are available and how to implement them within a container environment
 
@@ -61,7 +61,7 @@ Play with Docker provides access to the 4 Docker EE hosts in your Cluster. These
 * A Linux-based Docker EE 18.01 Manager node
 * Three Linux-based Docker EE 18.01 Worker nodes
 
-> **Important Note: beta** Please note, as of now, this is a Docker EE 2.0 environment. Docker EE 2.0 shows off the new Kubernetes functionality which is described below.
+> **Important Note: beta** Please note, as of now, this is a Docker EE 2.1 environment. Docker EE 2.1 shows off the new Kubernetes functionality which is described below.
 
 By clicking a name on the left, the console window will be connected to that node.
 
@@ -86,7 +86,7 @@ Docker EE provides an integrated, tested and certified platform for apps running
 
 ### <a name="intro2"></a>Overview of Orchestration
 
-While it is easy to run an application in isolation on a single machine, orchestration allows you to coordinate multiple machines to manage an application, with features like replication, encryption, loadbalancing, service discovery and more. If you've read anything about Docker, you have probably heard of Kubernetes and Docker swarm mode. Docker EE allows you to use either Docker Swarm mode or Kubernetes for orchestration.
+While it is easy to run an application in isolation on a single machine, orchestration allows you to coordinate multiple machines to manage an application, with features like replication, encryption, loadbalancing, service discovery and more. If you've read anything about Docker, you have probably heard of Kubernetes and Docker swarm mode. Docker EE allows you to use  Docker Swarm mode, Kubernetes or a hybrid of both for orchestration.
 
 Both Docker Swarm mode and Kubernetes are declarative: you declare your cluster's desired state, and applications you want to run and where, networks, and resources they can use. Docker EE simplifies this by taking common concepts and moving them to the a shared resource.
 
@@ -98,7 +98,7 @@ Swarm mode uses managers and workers to run your applications. Managers run the 
 
 #### <a name="intro2.2"></a>Overview of Kubernetes
 
-Kubernetes is available in Docker EE 2.0 and included in this workshop. Kubernetes deployments tend to be more complex than Docker Swarm, and there are many component types. UCP simplifies a lot of that, relying on Docker Swarm to handle shared resources. We'll concentrate on Services and Deployments in this workshop, but there's plenty more supported by UCP 2.0.
+Kubernetes v1.11.2 is available in Docker EE 2.1 and included in this workshop. Kubernetes deployments tend to be more complex than Docker Swarm, and there are many component types. UCP simplifies a lot of that, relying on Docker Swarm to handle shared resources. We'll concentrate on Services and Deployments in this workshop, but there's plenty more supported by UCP 3.1 in Docker EE 2.1.
 
 ## <a name="task1"></a>Task 1: Configure the Docker EE Cluster
 
