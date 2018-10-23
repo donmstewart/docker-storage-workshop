@@ -1,4 +1,4 @@
-# DockerCon US 2018 Presentation - “Persistent and shared Storage”
+# DockerCon EU 2018 Presentation - “Persistent and shared Storage”
 
 The demonstration requires:
 
