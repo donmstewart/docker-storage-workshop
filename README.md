@@ -194,9 +194,10 @@ watch ls /dockercon
 ```
 The above command will periodically (every 2 seconds) run the command `ls /dockercon` and print out the output.
 
-In **Container 2** move to the docker mount with `cd /dockercon` and we will create simple files with the `touch` command. e.g.
+In **Container 2** we will move to the docker mount with `cd /dockercon` and we will create simple files with the `touch` command. i.e.
 
 ```
+cd /dockercon
 touch sample_data
 ```
 
@@ -205,7 +206,9 @@ You will see these new files be reflected in the output of the first container.
 ### <a name="task 2.4"></a>Task 2.4: Local Volume cleanup
 
 
-Once completing the task **both** containers will need exiting to close the screen session, after exiting the first session use `ctrl+a+tab` to move to the next session and exit. Finally remove the Docker volume with the command `docker volume rm dockercon`.
+Once completing the task **both** containers will need exiting to close the screen session, after exiting the first session use `ctrl+a+tab` to move to the next session and exit. Finally remove the Docker volume with the command 
+
+`docker volume rm dockercon`
 
 ## <a name="task3"></a>Task 3: Share Storage across hosts
 
@@ -255,9 +258,10 @@ watch ls /dockercon
 ```
 The above command will periodically (every 2 seconds) run the command `ls /dockercon` and print out the output.
 
-In **Container 2** move to the docker mount with `cd /dockercon` and we will create simple files with the `touch` command. e.g.
+In **Container 2** we will move to the docker mount with `cd /dockercon` and we will create simple files with the `touch` command. e.g.
 
 ```
+cd /dockercon
 touch sample_data
 ```
 
