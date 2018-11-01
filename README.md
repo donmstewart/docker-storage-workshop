@@ -58,8 +58,8 @@ There are three main components to the Play With Docker (PWD) interface.
 ### 1. Console Access
 Play with Docker provides access to the 4 Docker EE hosts in your Cluster. These machines are:
 
-* A Linux-based Docker EE 18.01 Manager node
-* Three Linux-based Docker EE 18.01 Worker nodes
+* A Linux-based Docker EE 18.09 Manager node
+* Three Linux-based Docker EE 18.09 Worker nodes
 
 > **Important Note: beta** Please note, as of now, this is a Docker EE 2.1 environment. Docker EE 2.1 shows off the new Kubernetes functionality which is described below.
 
