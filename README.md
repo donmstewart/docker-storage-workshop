@@ -9,39 +9,34 @@ In this lab we'll look at the types of storage options that are available and ho
 > **Time**: Approximately 75 minutes
 
 > **Introduction**:
->	* [What is the Docker Platform](#intro1)
->	* [Overview of Orchestration](#intro2)
->		* [Basics of Docker Swarm mode](#intro2.1)
->		* [Basics of Kubernetes](#intro2.2)
+> _ [What is the Docker Platform](#intro1) > _ [Overview of Orchestration](#intro2) > _ [Basics of Docker Swarm mode](#intro2.1) > _ [Basics of Kubernetes](#intro2.2)
 
 > **Tasks**:
 
-> * [Task 1: Configure the Docker EE Cluster](#task1)
->   * [Task 1.1: Accessing PWD](#task1.1)
->   * [Task 1.2: Configure Manager1](#task1.2)
->   * [Task 1.3: Configure Workers](#task1.3)
-> * [Task 2: Local Docker Volume](#task2)
->   * [Task 2.1: Create a local Docker Volume](#task2.1)
->   * [Task 2.2: Create multiple containers that use the same volume](#task2.2)
->   * [Task 2.3: Create shared data](#task2.3)
->   * [Task 2.4: Local Volume cleanup](#task2.4)
-> * [Task 3: Shared Storage across hosts](#task3)
->   * [Task 3.1: Create a shared Docker Volume](#task3.1)
->   * [Task 3.2: Create multiple containers that share the same volume](#task3.2)
->   * [Task 3.3: Create shared data](#task3.3)
->   * [Task 3.4: Shared Volume cleanup](#task3.4)
-> * [Task 4: Storage Orchestration with Swarm](#task4)
->   * [Task 4.1: Configure Workloads to Only Run on Workers](#task4.1)
->   * [Task 4.2: Configuring Containers for Deployment](#task4.2)
->   * [Task 4.3: Deploying a service that uses shared storage](#task4.3)
->   * [Task 4.4: Create shared web-based content](#task4.4)
->   * [Task 4.5: Visualise the Deployment](#task4.5)
-> * [Task 5: Storage Orchestration with Kubernetes](#task5)
->   * [Task 5.1: Configure Kubernetes access from the Terminal](#task5.1)
->   * [Task 5.2: Deploy Application in Kubernetes](#task5.2)
->   * [Task 5.3: Check out the Deployment on the Command Line](#task5.3)
-> **Conclusion**
-
+> - [Task 1: Configure the Docker EE Cluster](#task1)
+>   - [Task 1.1: Accessing PWD](#task1.1)
+>   - [Task 1.2: Configure Manager1](#task1.2)
+>   - [Task 1.3: Configure Workers](#task1.3)
+> - [Task 2: Local Docker Volume](#task2)
+>   - [Task 2.1: Create a local Docker Volume](#task2.1)
+>   - [Task 2.2: Create multiple containers that use the same volume](#task2.2)
+>   - [Task 2.3: Create shared data](#task2.3)
+>   - [Task 2.4: Local Volume cleanup](#task2.4)
+> - [Task 3: Shared Storage across hosts](#task3)
+>   - [Task 3.1: Create a shared Docker Volume](#task3.1)
+>   - [Task 3.2: Create multiple containers that share the same volume](#task3.2)
+>   - [Task 3.3: Create shared data](#task3.3)
+>   - [Task 3.4: Shared Volume cleanup](#task3.4)
+> - [Task 4: Storage Orchestration with Swarm](#task4)
+>   - [Task 4.1: Configure Workloads to Only Run on Workers](#task4.1)
+>   - [Task 4.2: Configuring Containers for Deployment](#task4.2)
+>   - [Task 4.3: Deploying a service that uses shared storage](#task4.3)
+>   - [Task 4.4: Create shared web-based content](#task4.4)
+>   - [Task 4.5: Visualise the Deployment](#task4.5)
+> - [Task 5: Storage Orchestration with Kubernetes](#task5)
+>   - [Task 5.1: Configure Kubernetes access from the Terminal](#task5.1)
+>   - [Task 5.2: Deploy Application in Kubernetes](#task5.2)
+>   - [Task 5.3: Check out the Deployment on the Command Line](#task5.3) > **Conclusion**
 
 ## Understanding the Play With Docker Interface
 
@@ -56,10 +51,11 @@ If none of these apply to you, contact your local [Docker Meetup Chapter](https:
 There are three main components to the Play With Docker (PWD) interface.
 
 ### 1. Console Access
+
 Play with Docker provides access to the 4 Docker EE hosts in your Cluster. These machines are:
 
-* A Linux-based Docker EE 18.01 Manager node
-* Three Linux-based Docker EE 18.01 Worker nodes
+- A Linux-based Docker EE 18.01 Manager node
+- Three Linux-based Docker EE 18.01 Worker nodes
 
 > **Important Note: beta** Please note, as of now, this is a Docker EE 2.1 environment. Docker EE 2.1 shows off the new Kubernetes functionality which is described below.
 
@@ -76,9 +72,9 @@ Throughout the lab you will be asked to provide either hostnames or login creden
 
 ## Document conventions
 
-- When you encounter a phrase in between `<` and `>`  you are meant to substitute in a different value.
+- When you encounter a phrase in between `<` and `>` you are meant to substitute in a different value.
 
-	For instance if you see `<dtr hostname>` you would actually type something like `ip172-18-0-7-b70lttfic4qg008cvm90.direct.ee-workshop.play-with-docker.com`
+      	For instance if you see `<dtr hostname>` you would actually type something like `ip172-18-0-7-b70lttfic4qg008cvm90.direct.ee-workshop.play-with-docker.com`
 
 ## <a name="intro1"></a>Introduction
 
@@ -86,7 +82,7 @@ Docker EE provides an integrated, tested and certified platform for apps running
 
 ### <a name="intro2"></a>Overview of Orchestration
 
-While it is easy to run an application in isolation on a single machine, orchestration allows you to coordinate multiple machines to manage an application, with features like replication, encryption, loadbalancing, service discovery and more. If you've read anything about Docker, you have probably heard of Kubernetes and Docker swarm mode. Docker EE allows you to use  Docker Swarm mode, Kubernetes or a hybrid of both for orchestration.
+While it is easy to run an application in isolation on a single machine, orchestration allows you to coordinate multiple machines to manage an application, with features like replication, encryption, loadbalancing, service discovery and more. If you've read anything about Docker, you have probably heard of Kubernetes and Docker swarm mode. Docker EE allows you to use Docker Swarm mode, Kubernetes or a hybrid of both for orchestration.
 
 Both Docker Swarm mode and Kubernetes are declarative: you declare your cluster's desired state, and applications you want to run and where, networks, and resources they can use. Docker EE simplifies this by taking common concepts and moving them to the a shared resource.
 
@@ -110,20 +106,19 @@ The Play with Docker (PWD) environment is almost completely set up, but before w
 
 2. Fill out the form, and click `submit`. You will then be redirected to the PWD environment.
 
-	It may take a few minutes to provision out your PWD environment.
+   It may take a few minutes to provision out your PWD environment.
 
-	> In a production environment you would use certs from a trusted certificate authority and would not see this screen.
-	>
-	> ![](./images/ssl_error.png)
+   > In a production environment you would use certs from a trusted certificate authority and would not see this screen.
+   >
+   > ![](./images/ssl_error.png)
 
 3. Click the `UCP` button on the left side of the screen.
 
 4. When prompted enter your username and password (these can be found below the console window in the main PWD screen). The UCP web interface should load up in your web browser.
 
-	> **Note**: Once the main UCP screen loads you'll notice there is a red warning bar displayed at the top of the UCP screen, this is an artifact of running in a lab environment. A UCP server configured for a production environment would not display this warning
-	>
-	> ![](./images/red_warning.png)
-
+   > **Note**: Once the main UCP screen loads you'll notice there is a red warning bar displayed at the top of the UCP screen, this is an artifact of running in a lab environment. A UCP server configured for a production environment would not display this warning
+   >
+   > ![](./images/red_warning.png)
 
 ### <a name="task 1.2"></a>Task 1.2: Configure Manager1
 
@@ -136,7 +131,6 @@ curl -L dockerdemo.it/managerEE | sh
 
 ```
 
-
 ### <a name="task 1.3"></a>Task 1.3: Configure Workers
 
 Select `Worker1` from the PWD UI and access the console interface.
@@ -147,6 +141,7 @@ Run the following command:
 curl -L dockerdemo.it/workerEE | sh
 
 ```
+
 **Repeat** for the remaining workers.
 
 ## <a name="task2"></a>Task 2: Local Docker Volume
@@ -192,6 +187,7 @@ In **Container 1** run the following command:
 ```
 watch ls /dockercon
 ```
+
 The above command will periodically (every 2 seconds) run the command `ls /dockercon` and print out the output.
 
 In **Container 2** move to the docker mount with `cd /dockercon` and we will create simple files with the `touch` command. e.g.
@@ -200,10 +196,9 @@ In **Container 2** move to the docker mount with `cd /dockercon` and we will cre
 touch sample_data
 ```
 
-You will see these new files be reflected in the output of the first container.
+Since both containers are sharing the same volume you will see these new files be reflected in the output of the first container.
 
 ### <a name="task 2.4"></a>Task 2.4: Local Volume cleanup
-
 
 Once completing the task **both** containers will need exiting to close the screen session, after exiting the first session use `ctrl+a+tab` to move to the next session and exit. Finally remove the Docker volume with the command `docker volume rm dockercon`.
 
@@ -245,7 +240,6 @@ docker run -it --rm -v nfs:/dockercon busybox
 
 The above command will run the `busybox` container and map in the Docker volume `nfs` to the path `/dockercon` inside the container.
 
-
 ### <a name="task 3.3"></a>Task 3.3: Create shared data
 
 In **Container 1** run the following command:
@@ -253,6 +247,7 @@ In **Container 1** run the following command:
 ```
 watch ls /dockercon
 ```
+
 The above command will periodically (every 2 seconds) run the command `ls /dockercon` and print out the output.
 
 In **Container 2** move to the docker mount with `cd /dockercon` and we will create simple files with the `touch` command. e.g.
@@ -261,10 +256,9 @@ In **Container 2** move to the docker mount with `cd /dockercon` and we will cre
 touch sample_data
 ```
 
-You will see these new files be reflected in the output of the first container.
+Since both containers are sharing the same volume you will see these new files be reflected in the output of the first container.
 
 ### <a name="task 3.4"></a>Task 3.4: Shared Volume cleanup
-
 
 Once completing the task exit both of the containers and finally remove the Docker volume with the command `docker volume rm nfs`.
 
@@ -288,7 +282,7 @@ By default, a container has no resource constraints and can use as much of a giv
 
 ## <a name="task4.1"></a>Task 4.1: Configure Workloads to Only Run on Workers
 
-*OPTIONAL FOR THE WORKSHOP*
+_OPTIONAL FOR THE WORKSHOP_
 
 Click on `Admin` > `Admin Settings` in the left menu sidebar.
 
@@ -305,33 +299,34 @@ Click on `Scheduler` and under `Container Scheduling` uncheck the first option `
 We'll use the Redis container as example on how to configure containers for production and go through the options.
 
 ```yaml
-  redis:
-    image: redis
-    deploy:
-      mode: replicated
-      replicas: 3
-    resources:
-      limits:
-        cpus: '0.5'
-        memory: 50M
-      reservations:
-        cpus: '0.25'
-        memory: 20M
-    placement:
-        constraints: [node.role == worker]
-    restart_policy:
-      condition: on-failure
-      delay: 5s
-      max_attempts: 3s
-      window: 120s
-    update_config:
-          parallelism: 2
-          delay: 10s
-    ports:
-      - "6379:6379"
-    networks:
-      - back-tier
+redis:
+  image: redis
+  deploy:
+    mode: replicated
+    replicas: 3
+  resources:
+    limits:
+      cpus: "0.5"
+      memory: 50M
+    reservations:
+      cpus: "0.25"
+      memory: 20M
+  placement:
+    constraints: [node.role == worker]
+  restart_policy:
+    condition: on-failure
+    delay: 5s
+    max_attempts: 3s
+    window: 120s
+  update_config:
+    parallelism: 2
+    delay: 10s
+  ports:
+    - "6379:6379"
+  networks:
+    - back-tier
 ```
+
 ### Deploy
 
 The deploy directive sets the `mode` to either `global` which is one container per node or `replicated` which specifies the number of containers with the `replicas` parameters. The example launches 3 Redis containers.
@@ -344,19 +339,19 @@ The `resources` directive sets the `limits` on the memory and CPU available to t
 
 Placement specifies constraints and preferences for a container. Constraints let you specify which nodes where a task can be scheduled. For example, you can specify that a container run only on a worker node, as in the example. Other contraints are:
 
-|node | attribute matches | example|
-|-----|-------------------|--------|
-|node.id | Node ID | node.id==2ivku8v2gvtg4 |
-|node.hostname | Node hostname | node.hostname!=node-2|
-|node.role | Node role | node.role==manager |
-|node.labels |user defined node labels | node.labels.security==high|
-|engine.labels |Docker Engine's labels	|engine.labels.operatingsystem==ubuntu 14.04 |
+| node          | attribute matches        | example                                     |
+| ------------- | ------------------------ | ------------------------------------------- |
+| node.id       | Node ID                  | node.id==2ivku8v2gvtg4                      |
+| node.hostname | Node hostname            | node.hostname!=node-2                       |
+| node.role     | Node role                | node.role==manager                          |
+| node.labels   | user defined node labels | node.labels.security==high                  |
+| engine.labels | Docker Engine's labels   | engine.labels.operatingsystem==ubuntu 14.04 |
 
 Preferences divide tasks evenly over different categories of nodes. One example of where this can be useful is to balance tasks over a set of datacenters or availability zones. For example, consider the following set of nodes:
 
-* Three nodes with node.labels.datacenter=east
-* Two nodes with node.labels.datacenter=south
-* One node with node.labels.datacenter=west
+- Three nodes with node.labels.datacenter=east
+- Two nodes with node.labels.datacenter=south
+- One node with node.labels.datacenter=west
 
 Since we are spreading over the values of the datacenter label and the service has 9 replicas, 3 replicas will end up in each datacenter. There are three nodes associated with the value east, so each one will get one of the three replicas reserved for this value. There are two nodes with the value south, and the three replicas for this value will be divided between them, with one receiving two replicas and another receiving just one. Finally, west has a single node that will get all three replicas reserved for west.
 
@@ -364,21 +359,21 @@ Since we are spreading over the values of the datacenter label and the service h
 
 Restart_policy configures if and how to restart containers when they exit. restart.
 
-* `condition`: One of none, on-failure or any (default: any).
-* `delay`: How long to wait between restart attempts, specified as a duration (default: 0).
-* `max_attempts`: How many times to attempt to restart a container before giving up (default: never give up).
-* `window`: How long to wait before deciding if a restart has succeeded, specified as a duration (default: decide immediately).
+- `condition`: One of none, on-failure or any (default: any).
+- `delay`: How long to wait between restart attempts, specified as a duration (default: 0).
+- `max_attempts`: How many times to attempt to restart a container before giving up (default: never give up).
+- `window`: How long to wait before deciding if a restart has succeeded, specified as a duration (default: decide immediately).
 
 ### Update Config
 
 Update_config configures how the service should be updated. Useful for configuring rolling updates.
 
-* `parallelism`: The number of containers to update at a time.
-* `delay`: The time to wait between updating a group of containers.
-* `failure_action`: What to do if an update fails. One of continue, rollback, or pause (default: pause).
-* `monitor`: Duration after each task update to monitor for failure (ns|us|ms|s|m|h) (default 0s).
-* `max_failure_ratio`: Failure rate to tolerate during an update.
-* `order`: Order of operations during updates. One of stop-first (old task is stopped before starting new one), or start-first (new task is started first, and the running tasks briefly overlap) (default stop-first)
+- `parallelism`: The number of containers to update at a time.
+- `delay`: The time to wait between updating a group of containers.
+- `failure_action`: What to do if an update fails. One of continue, rollback, or pause (default: pause).
+- `monitor`: Duration after each task update to monitor for failure (ns|us|ms|s|m|h) (default 0s).
+- `max_failure_ratio`: Failure rate to tolerate during an update.
+- `order`: Order of operations during updates. One of stop-first (old task is stopped before starting new one), or start-first (new task is started first, and the running tasks briefly overlap) (default stop-first)
 
 ## <a name="task4.3"></a>Task 4.3: Deploying a service that uses shared storage
 
@@ -415,10 +410,10 @@ This will create four nginx replicas that will all attempt to read web assets fr
 On one of the nodes find the swarm created volume with the `docker volume ls` command.
 
 Run a new container and map the shared volume
+
 ```
 docker run -it --rm -v <swarm_volume>:/web busybox
 ```
-
 
 Create a new `index.html` in the `/web` shared volume with the following command
 
@@ -446,7 +441,7 @@ We can use the Docker Swarm visualizer to see the deployment graphically. To do 
 docker run -it -d -p 3000:8080 -v /var/run/docker.sock:/var/run/docker.sock dockersamples/visualizer
 ```
 
-In your browser, go to http://<$UCP_HOST>:3000 to see the containers and how they are distributed across the cluster.
+In your browser, go to http://<\$UCP_HOST>:3000 to see the containers and how they are distributed across the cluster.
 
 ![](images/visualizer.png)
 
@@ -513,7 +508,6 @@ Kubernetes uses abstractions to represent containerized workloads and their depl
 
 Beyond basic objects, such as pods and services, is a higher level of abstraction called `controllers` that build on the basic objects to add functions and convenience features. A `replicaset` is a controller that creates and destroys pods dynamically. Another controller and higher level of abstraction is a `deployment` which provides the declarative updates for `pods` and `replicasets`. Deployments describe the desired end state of an application.
 
-
 1. Click on `Kubernetes` on the side bar menu and click `Storage`
 
 ![](images/kubernetes.png)
@@ -550,10 +544,10 @@ metadata:
   name: nfs-pvc
 spec:
   accessModes:
-  - ReadWriteMany
+    - ReadWriteMany
   resources:
-     requests:
-       storage: 1Gi
+    requests:
+      storage: 1Gi
 ```
 
 4. Create a web service
@@ -574,13 +568,13 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.7.9
-        ports:
-        - containerPort: 80
-        volumeMounts:
-          - name: nfsvol
-            mountPath: /usr/share/nginx/html
+        - name: nginx
+          image: nginx:1.7.9
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: nfsvol
+              mountPath: /usr/share/nginx/html
       volumes:
         - name: nfsvol
           persistentVolumeClaim:
@@ -601,14 +595,13 @@ spec:
     app: nginx
 ```
 
-
 5. To see the application running, click on `Load Balancers` on the left side menu, click on `nginx` to display the webserver panel. Under `Ports` you'll see the URL for the application. Click on the link and add `nginx` to the url to get to the application.
 
 ![](images/kubernetes_loadbalancers.png)
 
 Note that the port number is different from the common port 80 used by Nginx. The webserver spec uses Kubernetes' `NodePort` publishing service which uses a predefined range of ports such as 32768. To use a different IP address or port outside the the range defined by nodePort, we can configure a pod as a proxy.
 
-###  <a name="task5.3"></a>Task 5.3: Check out the Deployment on the Command Line
+### <a name="task5.3"></a>Task 5.3: Check out the Deployment on the Command Line
 
 1. Go to the terminal window.
 
@@ -617,6 +610,7 @@ Note that the port number is different from the common port 80 used by Nginx. Th
 ```bash
 $ kubectl get all
 ```
+
 ![](images/kubectl_get_all.gif)
 
 3. View info on pods
@@ -624,6 +618,7 @@ $ kubectl get all
 ```bash
 $ kubectl get pods
 ```
+
 ![](images/kubectl_get_pods.png)
 
 4. View info on services
@@ -642,10 +637,7 @@ $ kubectl get deployments
 
 ![](images/kubectl_get_deployments.png)
 
-
 ## Conclusion
-
-
 
 ### What we covered
 
@@ -673,9 +665,10 @@ In this tutorial we saw how easy it was to convert typical N-Tier Java CRUD appl
 
 With Docker EE you have a choice. Whether your app is tied to a specific version of Java or you're building on the latest JVM, there are base images for application specific requirements. EE also supports Windows containers so you can run hybrid workloads to take advantage of both Windows and Linux applications. Docker EE supports both Docker Swarm and Kubernetes, you can pick the right solution for the application with out lock in.
 
-
 ## Call to Action
 
 ### Download Docker EE
+
 ### MTA
+
 ### Docker Associate Certification
