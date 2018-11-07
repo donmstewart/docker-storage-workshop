@@ -53,7 +53,7 @@ This workshop is only available to people in a pre-arranged workshop. That may h
 
 If none of these apply to you, contact your local [Docker Meetup Chapter](https://events.docker.com/chapters/) and ask if there are any scheduled workshops. In the meantime, you may be interested in the labs available through the [Play with Docker Classroom](training.play-with-docker.com).
 
-There are three main components to the Play With Docker (PWD) interface. 
+There are three main components to the Play With Docker (PWD) interface.
 
 ### 1. Console Access
 Play with Docker provides access to the 4 Docker EE hosts in your Cluster. These machines are:
@@ -135,7 +135,7 @@ Run the following command:
 curl -L dockerdemo.it/managerEE | sh
 
 ```
-    
+
 
 ### <a name="task 1.3"></a>Task 1.3: Configure Workers
 
@@ -155,7 +155,7 @@ In this task we will create a Docker Volume that multiple containers can make us
 
 ### <a name="task 2.1"></a>Task 2.1: Create a local docker volume
 
-In the UI select `worker1` and ensure that CLI is visible, the UI may need waking up with a few presses of the `return` key. 
+In the UI select `worker1` and ensure that CLI is visible, the UI may need waking up with a few presses of the `return` key.
 
 Create a local volume with the following command:
 
@@ -171,7 +171,7 @@ docker volume ls | grep dockercon
 
 ### <a name="task 2.2"></a>Task 2.2: Create multiple containers that use the same volume
 
-The same node has been configured to have multiple sessions enabled through the `screen` utility. There is a `.screenrc` file that has this configuration already pre-configured. 
+The same node has been configured to have multiple sessions enabled through the `screen` utility. There is a `.screenrc` file that has this configuration already pre-configured.
 
 Start up the utility with the command `screen` and you'll be presented with a split screen and two command prompts.
 
@@ -183,7 +183,7 @@ Start a new container in each of the sessions with the following command:
 docker run -it --rm -v dockercon:/dockercon busybox
 ```
 
-The above command will run the `busybox` container and map in the Docker volume `busybox` to the path `/dockercon` inside the container.
+The above command will run the `busybox` container and map in the Docker volume `dockercon` to the path `/dockercon` inside the container.
 
 ### <a name="task 2.3"></a>Task 2.3: Create shared data
 
@@ -286,7 +286,7 @@ For worker nodes, the overhead of Docker components and agents is not large — 
 
 By default, a container has no resource constraints and can use as much of a given resource as the host’s kernel scheduler allows. You can limit a container's access to memory and CPU resources. With the release of Java 10, containers running the Java Virtual Machine will comply with the limits set by Docker.
 
-## <a name="task4.1"></a>Task 4.1: Configure Workloads to Only Run on Workers 
+## <a name="task4.1"></a>Task 4.1: Configure Workloads to Only Run on Workers
 
 *OPTIONAL FOR THE WORKSHOP*
 
@@ -501,7 +501,7 @@ Test that the kubectl can connect to kubernetes.
 $ kubectl get all
 NAME             TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 svc/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   6h
-```  
+```
 
 ### <a name="task5.2"></a>Task 5.2: Deploy Application in Kubernetes
 
@@ -524,16 +524,16 @@ Beyond basic objects, such as pods and services, is a higher level of abstractio
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nfs-pv 
+  name: nfs-pv
 spec:
   capacity:
-    storage: 1Gi 
+    storage: 1Gi
   accessModes:
-    - ReadWriteMany 
-  persistentVolumeReclaimPolicy: Retain 
-  nfs: 
-    path: /nfs 
-    server: 10.20.0.XXX 
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /nfs
+    server: 10.20.0.XXX
     readOnly: false
 ```
 
@@ -547,10 +547,10 @@ Ensure the `server` has the address of manager1.
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nfs-pvc  
+  name: nfs-pvc
 spec:
   accessModes:
-  - ReadWriteMany      
+  - ReadWriteMany
   resources:
      requests:
        storage: 1Gi
@@ -579,8 +579,8 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-          - name: nfsvol 
-            mountPath: /usr/share/nginx/html 
+          - name: nfsvol
+            mountPath: /usr/share/nginx/html
       volumes:
         - name: nfsvol
           persistentVolumeClaim:
