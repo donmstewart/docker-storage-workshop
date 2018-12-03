@@ -40,7 +40,7 @@ In this lab we'll look at the types of storage options that are available and ho
 
 ## Understanding the Play With Docker Interface
 
-# `http://ee-labs.play-with-docker.com`
+# `http://dockr.ly/dceu-workshop`
 
 ![](./images/pwd_screen.png)
 
